@@ -1,0 +1,49 @@
+<div class="col-md-6">
+    <input class="form-control" name="serialNumber" [(ngModel)]="searchText"
+        (ngModelChange)="onSearchTextChange($event)" placeholder="Search Name, Licence..." />
+</div>
+<div style="text-align: right;">
+    Page size: &nbsp;
+    <select name="pageZise" [(ngModel)]="pageSize" (ngModelChange)="onPageChange()">
+        <option>5</option>
+        <option>10</option>
+    </select>&nbsp;
+    <a href="javascript:;" (click)="prePage()">Previous</a>&nbsp;&nbsp;
+    <a href="javascript:;" (click)="nextPage()">Next</a>
+</div>
+<div class="row list" style="background-color: #ced4da;">
+    <div class="col-md-1">#</div>
+    <div class="col-md-2">Name</div>
+    <div class="col-md-2">Licence</div>
+    <div class="col-md-1">Phone</div>
+    <div class="col-md-2">Email</div>
+    <div class="col-md-2">Address</div>
+    <div class="col-md-1">Status</div>
+    <div class="col-md-1">Created</div>
+</div>
+<div *ngFor="let provider of providers" class="row list">
+    <div class="col-md-1">
+        <a (click)="openDcoument(provider)">{{provider.serialNumber}}</a>
+    </div>
+    <div class="col-md-2">
+        <a (click)="openDcoument(provider)">{{provider.name}}</a>
+    </div>
+    <div class="col-md-2">
+        <a (click)="openDcoument(provider)">{{provider.licence}}</a>
+    </div>
+    <div class="col-md-1">
+        <a (click)="openDcoument(provider)">{{provider.phone}}</a>
+    </div>
+    <div class="col-md-2">
+        <a (click)="openDcoument(provider)">{{provider.email}}</a>
+    </div>
+    <div class="col-md-2">
+        <a (click)="openDcoument(provider)">{{provider.address}}</a>
+    </div>
+    <div class="col-md-1">
+        <a (click)="openDcoument(provider)">{{provider.status}}</a>
+    </div>
+    <div class="col-md-1">
+        <a (click)="openDcoument(provider)">{{provider.created}}</a>
+    </div>
+</div>

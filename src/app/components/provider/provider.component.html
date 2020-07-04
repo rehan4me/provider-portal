@@ -1,0 +1,67 @@
+<div *ngIf="provider">
+    <form>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="serialNumber">
+                    Serial Number
+                </label>
+                <input class="form-control" name="serialNumber" id="serialNumber" [(ngModel)]="provider.serialNumber" readonly />
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="licence">
+                    License
+                </label>
+                <input class="form-control" name="licence" id="licence" [(ngModel)]="provider.licence" required />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="name">
+                    Name
+                </label>
+                <input class="form-control" name="name" id="name" [(ngModel)]="provider.name" required />
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="phone">
+                    Phone Number
+                </label>
+                <input class="form-control" name="phone" id="phone" [(ngModel)]="provider.phone" required />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="email">
+                    Email
+                </label>
+                <input class="form-control" name="email" id="email" [(ngModel)]="provider.email" required />
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="address">
+                    Address
+                </label>
+                <input class="form-control" name="address" id="address" [(ngModel)]="provider.address" required />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6 form-group">
+                <label for="status">
+                    Status
+                </label>
+                <select class="form-control" name="status" id="status" [(ngModel)]="provider.status">
+                    <option>Active</option>
+                    <option>Inactive</option>
+                </select>
+            </div>
+            <div class="col-md-6 form-group">
+                <label for="created">
+                    Enroll DateTime
+                </label>
+                <input class="form-control" name="created" id="created" [(ngModel)]="provider.created" readonly />
+            </div>
+        </div>
+        <button type="Save" class="btn btn-primary" (click)="onSubmit()">Save</button>&nbsp;
+        <button type="Save" class="btn btn-secondary" (click)="closeDcoument()">Cancel</button>
+    </form>
+</div>
