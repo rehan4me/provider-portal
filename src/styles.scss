@@ -28,23 +28,28 @@
   
   .content {
     margin: 5rem;
+    .list {
+      padding: .5rem 0;
+      border-bottom: 1px solid #e9ecef;
+      font-weight: 500;
+    }
+  }
+
+  .required-field::after {
+    content: ' *';
+    color: red;
   }
 
   a,
   a:visited,
   a:hover {
-    color: #1976d2;
-    text-decoration: none;
+    color: #333 !important;
     font-weight: 500 !important;
   }
 
   a:hover {
-    color: #125699 !important;
+    color: #1976d2 !important;
     cursor: pointer;
+    text-decoration: underline !important;
+    font-weight: 400 !important;
   }
-  
-  .list {
-    padding: .5rem 1rem;
-    border-bottom: 1px solid #e9ecef;
-    font-weight: 500;
-}

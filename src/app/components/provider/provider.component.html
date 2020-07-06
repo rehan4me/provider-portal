@@ -1,67 +1,86 @@
-<div *ngIf="provider">
-    <form>
-        <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="serialNumber">
-                    Serial Number
-                </label>
-                <input class="form-control" name="serialNumber" id="serialNumber" [(ngModel)]="provider.serialNumber" readonly />
+<div *ngIf="provider" class="card">
+    <div class="card-header"><strong>Provider Details</strong></div>
+    <div class="card-body">
+        <div *ngIf="!providerForm.valid" class="alert alert-danger" role="alert">
+            <div *ngIf="providerFormControls.serialNumber.invalid && providerFormControls.serialNumber.errors.required">Serial
+                Number is
+                required</div>
+            <div *ngIf="providerFormControls.licence.invalid && providerFormControls.licence.errors.required">License is
+                required</div>
+            <div *ngIf="providerFormControls.name.invalid && providerFormControls.name.errors.required">Name is required</div>
+            <div *ngIf="providerFormControls.phone.invalid && providerFormControls.phone.errors.required">Phone is required
             </div>
-            <div class="col-md-6 form-group">
-                <label for="licence">
-                    License
-                </label>
-                <input class="form-control" name="licence" id="licence" [(ngModel)]="provider.licence" required />
+            <div *ngIf="providerFormControls.email.invalid && providerFormControls.email.errors.required">Email is required
             </div>
+            <div *ngIf="providerFormControls.address.invalid && providerFormControls.address.errors.required">Address is
+                required</div>
+            <div *ngIf="providerFormControls.created.invalid && providerFormControls.created.errors.required">Enroll DateTime is
+                required</div>
         </div>
-
-        <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="name">
-                    Name
-                </label>
-                <input class="form-control" name="name" id="name" [(ngModel)]="provider.name" required />
+        <form [formGroup]="providerForm" (ngSubmit)="onFormSubmit()">
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label for="serialNumber">
+                        Serial Number
+                    </label>
+                    <input class="form-control" formControlName="serialNumber" id="serialNumber" readonly />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="required-field" for="licence">
+                        License
+                    </label>
+                    <input class="form-control" formControlName="licence" id="licence" />
+                </div>
             </div>
-            <div class="col-md-6 form-group">
-                <label for="phone">
-                    Phone Number
-                </label>
-                <input class="form-control" name="phone" id="phone" [(ngModel)]="provider.phone" required />
+        
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label class="required-field" for="name">
+                        Name
+                    </label>
+                    <input class="form-control" id="name" formControlName="name" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="required-field" for="phone">
+                        Phone Number
+                    </label>
+                    <input class="form-control" id="phone" formControlName="phone" />
+                </div>
             </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="email">
-                    Email
-                </label>
-                <input class="form-control" name="email" id="email" [(ngModel)]="provider.email" required />
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label class="required-field" for="email">
+                        Email
+                    </label>
+                    <input class="form-control" id="email" formControlName="email" />
+                </div>
+                <div class="col-md-6 form-group">
+                    <label class="required-field" for="address">
+                        Address
+                    </label>
+                    <input class="form-control" id="address" formControlName="address" />
+                </div>
             </div>
-            <div class="col-md-6 form-group">
-                <label for="address">
-                    Address
-                </label>
-                <input class="form-control" name="address" id="address" [(ngModel)]="provider.address" required />
+        
+            <div class="row">
+                <div class="col-md-6 form-group">
+                    <label class="required-field" for="status">
+                        Status
+                    </label>
+                    <select class="form-control" id="status" formControlName="status">
+                        <option>Active</option>
+                        <option>Inactive</option>
+                    </select>
+                </div>
+                <div class="col-md-6 form-group">
+                    <label for="created">
+                        Enroll DateTime
+                    </label>
+                    <input class="form-control" id="created" formControlName="created" readonly />
+                </div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 form-group">
-                <label for="status">
-                    Status
-                </label>
-                <select class="form-control" name="status" id="status" [(ngModel)]="provider.status">
-                    <option>Active</option>
-                    <option>Inactive</option>
-                </select>
-            </div>
-            <div class="col-md-6 form-group">
-                <label for="created">
-                    Enroll DateTime
-                </label>
-                <input class="form-control" name="created" id="created" [(ngModel)]="provider.created" readonly />
-            </div>
-        </div>
-        <button type="Save" class="btn btn-primary" (click)="onSubmit()">Save</button>&nbsp;
-        <button type="Save" class="btn btn-secondary" (click)="closeDcoument()">Cancel</button>
-    </form>
+            <button type="submit" class="btn btn-primary" [disabled]="!providerForm.valid">Save</button>&nbsp;
+            <button type="buttom" class="btn btn-secondary" (click)="closeDcoument()">Cancel</button>
+        </form>
+    </div>
 </div>

@@ -11,7 +11,7 @@
     <a href="javascript:;" (click)="prePage()">Previous</a>&nbsp;&nbsp;
     <a href="javascript:;" (click)="nextPage()">Next</a>
 </div>
-<div class="row list" style="background-color: #ced4da;">
+<div class="row list">
     <div class="col-md-1">#</div>
     <div class="col-md-2">Name</div>
     <div class="col-md-2">Licence</div>
@@ -26,7 +26,7 @@
         <a (click)="openDcoument(provider)">{{provider.serialNumber}}</a>
     </div>
     <div class="col-md-2">
-        <a (click)="openDcoument(provider)">{{provider.name}}</a>
+        <a (click)="openDcoument(provider)" style="color: #1976d2 !important;">{{provider.name}}</a>
     </div>
     <div class="col-md-2">
         <a (click)="openDcoument(provider)">{{provider.licence}}</a>
